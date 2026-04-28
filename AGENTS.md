@@ -83,3 +83,4 @@ Using `skills/secure_development/mcp-server/input-output-sanitization.md`: revie
 - Glossary: [docs/glossary.md](docs/glossary.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Secure development skill index: [skills/secure_development/README.md](skills/secure_development/README.md)
+- constitution: [docs/normative/constitution.md](docs/normative/constitution.md)
