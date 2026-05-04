@@ -19,4 +19,4 @@ repos:
         language: python
         entry: uv run python scripts/check-skills-format.py
         pass_filenames: false
-        files: ^skills/.*\.md$
+        files: ^module/skills/.*\.md$

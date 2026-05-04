@@ -1,6 +1,8 @@
 # AGENTS.md — Context for AI assistants
 
-This is the canonical context file for agents working in this repository. Read it before making any changes.
+This is the canonical context file for agents working **in this repository** (contributors, hygiene, CI). Read it before making any changes.
+
+If you are consuming skills as an **installable module** (for example via Lola), read **[`module/AGENTS.md`](module/AGENTS.md)** first — it is the AI Main Spec for packaged skills.
 
 ## What this repo is
 
@@ -14,22 +16,24 @@ This is the canonical context file for agents working in this repository. Read i
 
 | Path | Purpose |
 |------|---------|
-| `skills/` | Production-ready, curated skills |
-| `skills/secure_development/` | 103 skills — AI/agentic infra security, cryptography, secure config, supply chain, security principles, technology-specific hardening (web, Kubernetes, messaging, cloud, languages) |
-| `skills/security_testing/` | 17 skills — fuzzing (AFL++, libFuzzer, cargo-fuzz, LibAFL, Atheris, ruzzy) and static analysis (Semgrep, CodeQL, SARIF) |
-| `skills/security_auditing/` | 4 skills — audit workflows: context building, differential review, false-positive checking, variant analysis |
-| `skills/developer_tooling/` | 4 skills — devcontainers, git cleanup, modern Python, property-based testing |
+| `module/` | **AI Context Module** — packaged skills for assistants (`AGENTS.md`, `skills/<id>/SKILL.md`, `mcps.json`). See [ADR-0002](docs/ADRs/0002-agentskills-standards.md). |
+| `module/skills/` | 128 production skills — flat directories, each with `SKILL.md` and optional `reference/` |
 | `experimental/` | Work-in-progress skills; contributions welcome |
-| `docs/` | Design notes, getting-started guides |
+| `docs/` | Design notes, skill indexes, ADRs |
+| `scripts/` | Validation and utilities (outside the module boundary) |
+
+Skills are grouped logically by `category` and `subcategory` fields in each `SKILL.md`. Counts by category: **103** secure development, **17** security testing, **4** security auditing, **4** developer tooling — see [`docs/skills-index.md`](docs/skills-index.md).
 
 ## Skill format
 
-Every skill is a markdown file with YAML front matter:
+Every skill primary file is `module/skills/<skill-id>/SKILL.md` with YAML front matter:
 
 ```markdown
 ---
-name: skill-name
+name: skill-id
 description: One-line description used by assistants to decide when to invoke.
+category: secure_development
+subcategory: mcp-server
 ---
 
 Skill body...
@@ -42,45 +46,47 @@ The `description` field is critical — it determines when agents invoke the ski
 Reference skills by path in a prompt:
 
 ```
-Using `skills/secure_development/mcp-server/input-output-sanitization.md`: review this MCP server for injection risks.
+Using `module/skills/input-output-sanitization/SKILL.md`: review this MCP server for injection risks.
 ```
 
 ## Conventions
 
-- **Skill files**: Tool-agnostic markdown only. No tool-specific config (`plugin.json`, `allowed-tools`, hooks). Reference docs inline or link upstream.
-- **Directory names**: kebab-case.
+- **Skill files**: Tool-agnostic markdown only. No tool-specific config (`plugin.json`, `allowed-tools`, hooks). Reference docs inline, under `reference/`, or link upstream.
+- **Skill ids and directory names**: kebab-case; must match `name` in front matter.
 - **Commits**: Use conventional commits.
 - **Secrets**: Never commit real credentials. Use synthetic values in docs and examples.
-- **Provenance**: When pulling in skills from upstream sources (Trail of Bits, internal repos), record the source commit and license in the relevant `skills/<category>/README.md`.
+- **Provenance**: When pulling in skills from upstream sources (Trail of Bits, internal repos), record the source commit and license in the relevant category doc under `docs/` (see [`docs/secure-development-skills.md`](docs/secure-development-skills.md)).
 
 ## Adding or updating skills
 
-1. Place the skill under the appropriate `skills/<category>/<subcategory>/` path.
-2. Write a precise `description` front matter field.
+1. Add or edit `module/skills/<skill-id>/SKILL.md` (and optional `reference/`). Use unique `<skill-id>`; resolve collisions with the `<subcategory>-<name>` pattern described in [ADR-0002](docs/ADRs/0002-agentskills-standards.md).
+2. Set `category`, `subcategory`, `name`, and `description` in front matter (`name` must equal the directory name).
 3. Keep skills tool-agnostic — no Claude-specific, Cursor-specific, or Copilot-specific syntax.
-4. If copying from an upstream source, note the source commit and license in the relevant `README.md`.
+4. If copying from an upstream source, note the source commit and license in the appropriate `docs/*-skills.md` provenance section.
 5. Trail of Bits skills are CC BY-SA 4.0 — adapted skills must carry the same license.
-6. Unfinished or unreviewed skills go in `experimental/`, not `skills/`.
-7. **Update all four indexes in the same commit as the skill file** — stale counts cause confusion for both humans and agents:
+6. Unfinished or unreviewed skills go in `experimental/`, not `module/skills/`.
+7. **Update indexes in the same commit** — stale counts cause confusion for both humans and agents:
 
  | File | What to update |
  |------|----------------|
- | `skills/<category>/README.md` | Add the skill to its subcategory table; increment the subcategory skill count |
- | `skills/README.md` | Increment the category count and the total count in the header; update the subcategory row if listed |
- | `README.md` | Increment the category count and the "N skills across four categories" total |
- | `AGENTS.md` | Increment the `skills/<category>/` count in the Repository layout table |
+ | [`docs/skills-index.md`](docs/skills-index.md) | Add or adjust rows; fix category totals |
+ | [`docs/secure-development-skills.md`](docs/secure-development-skills.md) (or sibling category doc) | Subcategory counts and provenance where applicable |
+ | [`README.md`](README.md) | Category totals and examples |
+ | [`module/AGENTS.md`](module/AGENTS.md) | Skill count or collision table if relevant |
 
 ## Things agents often get wrong here
 
 - **Making skills tool-specific**: Skills must remain tool-agnostic. Do not add tool-specific directives, config keys, or syntax.
 - **Omitting the `description` field**: Without it, assistants cannot auto-discover the skill. Always include it.
-- **Committing directly to `skills/`**: Unfinished or unreviewed work goes in `experimental/` first.
-- **Dropping provenance**: When adapting upstream skills, preserve the source commit and license in the category `README.md`.
+- **Mismatching `name` and directory**: `name` in front matter must equal `module/skills/<name>/`.
+- **Committing directly to `module/skills/`**: Unfinished or unreviewed work goes in `experimental/` first.
+- **Dropping provenance**: When adapting upstream skills, preserve the source commit and license in the docs.
 - **Editing skill content without reading it first**: Always read the current file before making changes.
 
 ## Key files
 
 - Glossary: [docs/glossary.md](docs/glossary.md)
+- Skills catalog: [docs/skills-index.md](docs/skills-index.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
-- Secure development skill index: [skills/secure_development/README.md](skills/secure_development/README.md)
+- Secure development guide: [docs/secure-development-skills.md](docs/secure-development-skills.md)
 - constitution: [docs/normative/constitution.md](docs/normative/constitution.md)

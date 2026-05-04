@@ -1,0 +1,6 @@
+# Protect index files during upstream merges.
+# These files can differ between forks that include additional skills or counts.
+AGENTS.md merge=ours
+README.md merge=ours
+docs/skills-index.md merge=ours
+docs/secure-development-skills.md merge=ours
