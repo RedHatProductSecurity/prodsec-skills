@@ -38,7 +38,7 @@ The configuration and context layer that prepares an AI agent for a specific tas
 
 ### MCP (Model Context Protocol)
 
-An open protocol for exposing tools to AI agents. MCP servers act as controlled access points — they receive tool calls from the agent and mediate access to external systems. Several skills in this repo address hardening MCP servers and clients (`skills/secure_development/mcp-server/`, `skills/secure_development/mcp-client/`).
+An open protocol for exposing tools to AI agents. MCP servers act as controlled access points — they receive tool calls from the agent and mediate access to external systems. Several skills in this repo address hardening MCP servers and clients (filter `module/skills` by `subcategory` `mcp-server` or `mcp-client`; see the [Skills index](skills-index.md)).
 
 ## P
 
@@ -54,7 +54,7 @@ A team responsible for receiving, triaging, coordinating, and disclosing vulnera
 
 ### SBOM (Software Bill of Materials)
 
-A structured inventory of all components in a software artifact — dependencies, transitive deps, versions, and licenses. SBOMs support vulnerability impact analysis and license compliance. Skills: `skills/secure_development/supply-chain/sbom-provenance.md`.
+A structured inventory of all components in a software artifact — dependencies, transitive deps, versions, and licenses. SBOMs support vulnerability impact analysis and license compliance. Skills: [`sbom-provenance`](../module/skills/sbom-provenance/SKILL.md).
 
 ### Skill
 
@@ -62,7 +62,7 @@ A markdown file with YAML front matter that gives an AI agent scoped, actionable
 
 ### SPIFFE/SPIRE
 
-**SPIFFE** (Secure Production Identity Framework for Everyone) is an open standard for workload identity. **SPIRE** is its reference implementation. Together they issue short-lived X.509 SVIDs (SPIFFE Verifiable Identity Documents) to workloads, enabling mTLS without long-lived credentials. Skills: `skills/secure_development/spiffe-spire/`.
+**SPIFFE** (Secure Production Identity Framework for Everyone) is an open standard for workload identity. **SPIRE** is its reference implementation. Together they issue short-lived X.509 SVIDs (SPIFFE Verifiable Identity Documents) to workloads, enabling mTLS without long-lived credentials. Skills: [`service-to-service-mtls`](../module/skills/service-to-service-mtls/SKILL.md).
 
 ## T
 
