@@ -39,7 +39,7 @@ consumable by any compliant AI tooling.
 
 **AI Context Modules: a packaging layer for skill collections**
 
-The [AI Context Module format](https://redhatproductsecurity.github.io/lola/concepts/skills-and-modules/#ai-context-module)
+The [AI Context Module format](https://lobstertrap.org/lola/concepts/skills-and-modules/#ai-context-module)
 builds on the AgentSkills.io standard to package multiple skills into a single
 distributable unit. The key structural element is a `module/` directory that
 establishes a clear package boundary — separating AI-facing content from
@@ -69,7 +69,7 @@ documents the contributor workflow.
 
 Adopting the AI Context Module standard makes the repository a first-class
 participant in the AI skills ecosystem. As a result, the module becomes
-distributable via AI package managers such as [Lola](https://redhatproductsecurity.github.io/lola)
+distributable via AI package managers such as [Lola](https://github.com/LobsterTrap/lola)
 to any supported AI assistant (Claude Code, Cursor, Gemini CLI, OpenCode):
 
 ```bash

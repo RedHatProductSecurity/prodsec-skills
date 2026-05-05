@@ -32,7 +32,7 @@ Skills are tool-agnostic — the same files work in any assistant that can read 
 
 ## Install via Lola
 
-Install all skills to your AI assistant in one command using [Lola](https://redhatproductsecurity.github.io/lola):
+Install all skills to your AI assistant in one command using [Lola](https://github.com/LobsterTrap/lola):
 
 ```bash
 lola mod add https://github.com/RedHatProductSecurity/prodsec-skills.git

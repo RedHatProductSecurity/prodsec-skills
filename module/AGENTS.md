@@ -1,6 +1,6 @@
 # prodsec-skills — AI Context Module (Main Spec)
 
-This file is the **module-level** context for assistants consuming this repository as an [AI Context Module](https://redhatproductsecurity.github.io/lola/concepts/skills-and-modules/#ai-context-module). It complements the repository root [`AGENTS.md`](../AGENTS.md), which describes **contributor** workflow (linting, commits, indexes).
+This file is the **module-level** context for assistants consuming this repository as an [AI Context Module](https://lobstertrap.org/lola/concepts/skills-and-modules/#ai-context-module). It complements the repository root [`AGENTS.md`](../AGENTS.md), which describes **contributor** workflow (linting, commits, indexes).
 
 ## Purpose
 
