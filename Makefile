@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help bootstrap lint check check-adrs check-skills fmt
+.PHONY: help bootstrap lint check check-adrs check-skills check-marketplace fmt
 
 help:
 	@echo "Available targets:"
@@ -9,6 +9,7 @@ help:
 	@echo "  check                - Run ruff and ty checks on Python"
 	@echo "  check-adrs           - Validate ADR format (naming, front matter, sections)"
 	@echo "  check-skills         - Validate skill YAML front matter"
+	@echo "  check-marketplace    - Validate marketplace.json skills paths exist"
 	@echo "  fmt                  - Format Python code with ruff"
 
 # Install all development tools needed for linting, formatting, and pre-commit hooks.
@@ -34,7 +35,7 @@ bootstrap:
 	@echo "==> Installing pre-commit hooks..."
 	pre-commit install
 
-lint: check check-adrs check-skills
+lint: check check-adrs check-skills check-marketplace
 
 check:
 	uvx ruff check .
@@ -44,6 +45,9 @@ check-adrs:
 
 check-skills:
 	@uv run python scripts/check-skills-format.py
+
+check-marketplace:
+	@uv run python scripts/check-marketplace-paths.py
 
 fmt:
 	uvx ruff format .

@@ -39,6 +39,48 @@ lola mod add https://github.com/RedHatProductSecurity/prodsec-skills.git
 lola install prodsec-skills --assistant claude-code
 ```
 
+## Install in an agent harness (Ambient, custom runners)
+
+For platforms that bake knowledge into runner images and expose it via `add_dirs`
+(e.g. [Ambient Code Platform](https://github.com/ambient-code/platform)):
+
+**1. Clone the module into your image at build time, pinned to a specific SHA:**
+
+```dockerfile
+ARG PRODSEC_SKILLS_REF=<pinned-sha>
+RUN git clone https://github.com/RedHatProductSecurity/prodsec-skills.git /app/prodsec-skills \
+    && git -C /app/prodsec-skills checkout --detach "${PRODSEC_SKILLS_REF}" \
+    && rm -rf /app/prodsec-skills/.git
+```
+
+**2. Add `/app/prodsec-skills/module` to `add_dirs`** — not the repo root. This
+ensures the agent's context entry point is `module/AGENTS.md` (the AI Main Spec),
+not the contributor-facing root `AGENTS.md`:
+
+```python
+# bridge.py — during session setup
+PRODSEC_MODULE_PATH = "/app/prodsec-skills/module"
+if Path(f"{PRODSEC_MODULE_PATH}/skills").exists() and PRODSEC_MODULE_PATH not in add_dirs:
+    add_dirs.append(PRODSEC_MODULE_PATH)
+```
+
+**3. Optionally inject a system prompt** directing agents to the skill index and
+the correct path pattern (`module/skills/<skill-id>/SKILL.md`):
+
+```python
+PRODSEC_SKILLS_PROMPT = (
+    "## Security Skills\n"
+    "Product Security skills are available at `/app/prodsec-skills/module/skills/`.\n"
+    "Choose a skill by reading its `description` field in `SKILL.md` — it is written "
+    "as an invocation condition. When performing security-sensitive tasks, read the "
+    "relevant skill before proceeding.\n"
+    "See `/app/prodsec-skills/module/AGENTS.md` for the full index and usage guide.\n\n"
+)
+```
+
+The `module/AGENTS.md` file (the AI Main Spec) is the single entry point — it
+lists all 128 skills with their trigger conditions and category groupings.
+
 ## Skill catalog
 
 **128** skills across four categories. See [`docs/skills-index.md`](docs/skills-index.md) for the full index.

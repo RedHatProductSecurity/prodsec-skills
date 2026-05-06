@@ -37,7 +37,7 @@
       },
       "strict": false,
       "skills": [
-        "./skills/"
+        "../module/skills/"
       ]
     }
   ]
