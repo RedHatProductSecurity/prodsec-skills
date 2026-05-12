@@ -4,7 +4,7 @@ This file is the **module-level** context for assistants consuming this reposito
 
 ## Purpose
 
-This project maintains **132** curated, **tool-agnostic** security skills. Each skill is a directory under `module/skills/<skill-id>/` containing:
+This project maintains **133** curated, **tool-agnostic** security skills. Each skill is a directory under `module/skills/<skill-id>/` containing:
 
 - **`SKILL.md`** — primary guidance (`name`, `description`, `category`, `subcategory` in YAML front matter, then markdown body).
 - **`reference/`** (optional) — supporting procedures and templates loaded on demand.
