@@ -1,6 +1,6 @@
 # Secure Development skills
 
-108 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
+109 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
 
 ## Usage
 
@@ -54,7 +54,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | Subcategory | Skills | Focus |
 |-------------|--------|-------|
 | [`cloud-infrastructure`](#cloud-infrastructure) | 2 | AWS security baselines (IAM, VPC, CloudTrail, RDS, KMS), general database security |
-| [`kubernetes`](#kubernetes) | 9 | Operator RBAC, OpenShift SCCs, Helm chart security, container hardening, health probes, workload resilience, pod access control, linux capabilities, network security |
+| [`kubernetes`](#kubernetes) | 10 | Operator RBAC, OpenShift SCCs, Helm chart security, container hardening, health probes, workload resilience, pod access control, linux capabilities, network security, cpu performance |
 | [`languages`](#languages) | 3 | Go secure coding, compiler hardening (flags, sanitizers), C/C++ memory and string safety |
 | [`messaging`](#messaging) | 2 | Kafka/AMQ Streams (TLS, SASL, ACLs), MQTT (auth, topic ACLs, payload encryption) |
 | [`web-security`](#web-security) | 9 | Web application security, HTTP security headers, React XSS prevention, GraphQL hardening, client-side security (XSS/CSRF/CSP), input validation and injection, session management, file upload security, XML and serialization hardening |
@@ -250,6 +250,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | Skill | Description |
 |-------|-------------|
 | [`container-hardening`](../module/skills/container-hardening/SKILL.md) | Harden container images and runtime configuration for Kubernetes |
+| [`cpu-performance`](../module/skills/cpu-performance/SKILL.md) | Configure CPU isolation, scheduling policies, and storage management for latency-sensitive Kubernetes workloads |
 | [`health-probes`](../module/skills/health-probes/SKILL.md) | Configure Kubernetes health probes, lifecycle hooks, and termination policies |
 | [`helm-chart-security`](../module/skills/helm-chart-security/SKILL.md) | Audit and harden Helm chart security configurations |
 | [`kubernetes`](#kubernetes) | 9 | Operator RBAC, OpenShift SCCs, Helm chart security, container hardening, health probes, workload resilience, pod access control, linux capabilities, network security |
