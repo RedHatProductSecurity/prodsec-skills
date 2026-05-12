@@ -1,0 +1,13 @@
+{
+  "name": "prodsec-skills",
+  "description": "Security guidance skills for AI coding assistants. Covers cryptography, web security, supply chain, MCP servers, Kubernetes, API gateways, fuzzing, static analysis, audit workflows, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Red Hat Product Security"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/RedHatProductSecurity/prodsec-skills",
+  "skills": [
+    "./module/skills/"
+  ]
+}
