@@ -35,10 +35,7 @@
         "repo": "RedHatProductSecurity/prodsec-skills",
         "ref": "main"
       },
-      "strict": false,
-      "skills": [
-        "../module/skills/"
-      ]
+      "strict": false
     }
   ]
 }
