@@ -17,12 +17,12 @@ If you are consuming skills as an **installable module** (for example via Lola),
 | Path | Purpose |
 |------|---------|
 | `module/` | **AI Context Module** — packaged skills for assistants (`AGENTS.md`, `skills/<id>/SKILL.md`, `mcps.json`). See [ADR-0002](docs/ADRs/0002-agentskills-standards.md). |
-| `module/skills/` | 133 production skills — flat directories, each with `SKILL.md` and optional `reference/` |
+| `module/skills/` | 134 production skills — flat directories, each with `SKILL.md` and optional `reference/` |
 | `experimental/` | Work-in-progress skills; contributions welcome |
 | `docs/` | Design notes, skill indexes, ADRs |
 | `scripts/` | Validation and utilities (outside the module boundary) |
 
-Skills are grouped logically by `category` and `subcategory` fields in each `SKILL.md`. Counts by category: **108** secure development, **17** security testing, **4** security auditing, **4** developer tooling — see [`docs/skills-index.md`](docs/skills-index.md).
+Skills are grouped logically by `category` and `subcategory` fields in each `SKILL.md`. Counts by category: **109** secure development, **17** security testing, **4** security auditing, **4** developer tooling — see [`docs/skills-index.md`](docs/skills-index.md).
 
 ## Skill format
 
