@@ -81,6 +81,46 @@ PRODSEC_SKILLS_PROMPT = (
 The `module/AGENTS.md` file (the AI Main Spec) is the single entry point — it
 lists all 129 skills with their trigger conditions and category groupings.
 
+## Use with CodeRabbit
+
+The included [`.coderabbit.yaml`](.coderabbit.yaml) translates prodsec-skills into automated PR review rules for [CodeRabbit](https://coderabbit.ai). It condenses ~60 skills into path-based review instructions, enables 8 security scanners, and defines pre-merge checks for the highest-severity concerns.
+
+This condensed version will be updated as new applicable skills are added to prodsec-skills.
+
+**To adopt in your repository:**
+
+1. Copy `.coderabbit.yaml` to the root of your repo (must be on the default branch):
+
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/RedHatProductSecurity/prodsec-skills/main/.coderabbit.yaml \
+     -o .coderabbit.yaml
+   ```
+
+2. Customize the globs in `path_instructions` for your project structure. The defaults use common conventions (`**/{auth,oauth}/**/*`, `**/*.go`, etc.) but may need tuning.
+
+3. Adjust pre-merge check modes. Start with `warning`, promote to `error` after 2-4 weeks:
+
+   ```yaml
+   pre_merge_checks:
+     custom:
+       - name: "no-hardcoded-secrets"
+         mode: "warning"  # change to "error" once tuned
+   ```
+
+4. Validate by commenting `@coderabbitai configuration` on any PR.
+
+**What you get:**
+
+| Feature | Coverage |
+|---------|----------|
+| Path-based review instructions | 20 blocks covering injection, web security, crypto, containers, Kubernetes/OpenShift, MCP server/client, inference engine, agents, LLM security, supply chain, CI/CD, auth, API gateway, Go, C/C++, databases, messaging, model registry |
+| Security scanners | gitleaks, Semgrep, Checkov, Hadolint, Trivy, OSV Scanner, actionlint, ast-grep |
+| Pre-merge checks (Pro+) | Hardcoded secrets, weak crypto, injection vectors, container privileges, sensitive data in logs, AI attribution |
+
+Pre-merge checks require CodeRabbit Pro+. Path instructions and scanners work on all plans.
+
+See [ADR-0003](docs/ADRs/0003-coderabbit-integration.md) for the full decision record and skill-to-config mapping.
+
 ## Skill catalog
 
 **129** skills across four categories. See [`docs/skills-index.md`](docs/skills-index.md) for the full index.
