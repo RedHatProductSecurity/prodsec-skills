@@ -79,7 +79,7 @@ PRODSEC_SKILLS_PROMPT = (
 ```
 
 The `module/AGENTS.md` file (the AI Main Spec) is the single entry point — it
-lists all 129 skills with their trigger conditions and category groupings.
+lists all 130 skills with their trigger conditions and category groupings.
 
 ## Use with CodeRabbit
 
@@ -123,11 +123,11 @@ See [ADR-0003](docs/ADRs/0003-coderabbit-integration.md) for the full decision r
 
 ## Skill catalog
 
-**129** skills across four categories. See [`docs/skills-index.md`](docs/skills-index.md) for the full index.
+**130** skills across four categories. See [`docs/skills-index.md`](docs/skills-index.md) for the full index.
 
 | Category | Skills | Purpose |
 |----------|--------|---------|
-| [`secure_development`](docs/secure-development-skills.md) | 104 | Building secure software — AI/agentic infrastructure, cryptography, supply chain, security principles, technology-specific hardening |
+| [`secure_development`](docs/secure-development-skills.md) | 105 | Building secure software — AI/agentic infrastructure, cryptography, supply chain, security principles, technology-specific hardening |
 | [`security_testing`](docs/security-testing-skills.md) | 17 | Finding vulnerabilities — fuzzing and static analysis |
 | [`security_auditing`](docs/security-auditing-skills.md) | 4 | Security review workflows |
 | [`developer_tooling`](docs/developer-tooling-skills.md) | 4 | General-purpose development tooling |
