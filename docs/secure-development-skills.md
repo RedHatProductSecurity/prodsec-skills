@@ -1,6 +1,6 @@
 # Secure Development skills
 
-104 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
+105 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
 
 ## Usage
 
@@ -54,7 +54,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | Subcategory | Skills | Focus |
 |-------------|--------|-------|
 | [`cloud-infrastructure`](#cloud-infrastructure) | 2 | AWS security baselines (IAM, VPC, CloudTrail, RDS, KMS), general database security |
-| [`kubernetes`](#kubernetes) | 5 | Operator RBAC, OpenShift SCCs, Helm chart security, container hardening, health probes |
+| [`kubernetes`](#kubernetes) | 6 | Operator RBAC, OpenShift SCCs, Helm chart security, container hardening, health probes, workload resilience |
 | [`languages`](#languages) | 3 | Go secure coding, compiler hardening (flags, sanitizers), C/C++ memory and string safety |
 | [`messaging`](#messaging) | 2 | Kafka/AMQ Streams (TLS, SASL, ACLs), MQTT (auth, topic ACLs, payload encryption) |
 | [`web-security`](#web-security) | 9 | Web application security, HTTP security headers, React XSS prevention, GraphQL hardening, client-side security (XSS/CSRF/CSP), input validation and injection, session management, file upload security, XML and serialization hardening |
@@ -254,6 +254,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | [`helm-chart-security`](../module/skills/helm-chart-security/SKILL.md) | Audit and harden Helm chart security configurations |
 | [`operator-security`](../module/skills/operator-security/SKILL.md) | Enforce least-privilege RBAC and secure runtime configuration for Kubernetes Operators |
 | [`scc-security`](../module/skills/scc-security/SKILL.md) | Review OpenShift Security Context Constraints for correct privilege levels |
+| [`workload-resilience`](../module/skills/workload-resilience/SKILL.md) | Configure Kubernetes workload resilience including pod scheduling, scaling, high availability, and disruption budgets |
 
 ### languages
 

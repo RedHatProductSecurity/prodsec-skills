@@ -20,7 +20,7 @@ Accepted
 
 ## Context
 
-`prodsec-skills` is a security skills library providing 129 security guidance
+`prodsec-skills` is a security skills library providing 130 security guidance
 files that AI assistants consume to apply security expertise during development.
 As adoption expands across teams, aligning the repository structure with
 established AI skill standards enables skills to be versioned, packaged, and
