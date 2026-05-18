@@ -96,8 +96,7 @@ all distinct operations used. Map each to a ProVerif declaration category:
 | `Commit(v, r) → C` | Commitment function |
 | `Open(C, v, r)` | Commitment equation |
 
-Consult [references/crypto-to-proverif-mapping.md](references/crypto-to-proverif-mapping.md)
-for exact ProVerif syntax for each.
+See the inlined essentials at the bottom for exact ProVerif syntax for each.
 
 ### Step 3: Declare Types, Functions, and Equations
 
@@ -251,14 +250,10 @@ query pk_i: pkey, pk_r: pkey, k: key;
 **Forward secrecy**: add a `ForwardSecrecyTest` process to the main process
 that leaks both long-term secret keys to the attacker, then check that a past
 session key remains secret. Pair it with a `free fs_witness: key [private]`
-declaration and `query attacker(fs_witness)`. See
-[references/security-properties.md](references/security-properties.md) →
-Forward Secrecy, and the worked example in
+declaration and `query attacker(fs_witness)`. See the worked example in
 `examples/simple-handshake/sample-output.pv`.
 
-Choose the strongest applicable query for each property. See
-[references/security-properties.md](references/security-properties.md) for
-the full decision tree.
+Choose the strongest applicable query for each property.
 
 ### Step 6: Write Participant Processes
 
@@ -388,8 +383,7 @@ Assumptions: <list modeling decisions and simplifications>
 │     or run the crypto-protocol-diagram skill first."
 │
 ├─ Diagram uses DH (not just symmetric crypto)?
-│  └─ Use dh/dhpk with commutativity equation
-│     See references/crypto-to-proverif-mapping.md → DH section
+│  └─ Use dh/dhpk with commutativity equation (see inlined essentials)
 │
 ├─ Diagram uses asymmetric signatures (Sign/Verify)?
 │  └─ Use sign/verify with inline reduc (not equation)
@@ -407,7 +401,6 @@ Assumptions: <list modeling decisions and simplifications>
 ├─ Forward secrecy requested?
 │  └─ Add a ForwardSecrecy variant in the main process that leaks
 │     long-term sk after session; add secrecy query for past session_key
-│     See references/security-properties.md → Forward Secrecy
 │
 ├─ Type-checker rejects the model?
 │  └─ ProVerif is typed: check every function arg type matches declaration.
@@ -417,16 +410,13 @@ Assumptions: <list modeling decisions and simplifications>
 ├─ Protocol has cross-process state coordination (e.g., one process must wait
 │  for another to record acceptance before proceeding)?
 │  └─ Use ProVerif tables (table/insert/get)
-│     See references/proverif-syntax.md → Tables
 │
 ├─ Verification does not terminate after several minutes?
 │  └─ Add noselect directive matching the message tuple structure on c
-│     See references/proverif-syntax.md → noselect
 │
 ├─ Protocol generates a private-type key (type sk [private]) that is never
 │  output directly but whose secrecy should be verified?
 │  └─ Use the Key Exposure Oracle pattern instead of query attacker(sk)
-│     See references/security-properties.md → Key Exposure Oracle
 │
 └─ Unsure which security properties to verify?
    └─ Default set: secrecy of session key + injective authentication
@@ -450,11 +440,9 @@ Study this before working on an unfamiliar protocol.
 
 ---
 
-## Supporting Documentation
+## Reference Essentials
 
-Upstream **prodsec-skills** — `plugins/trailmark/skills/mermaid-to-proverif/references/`: `crypto-to-proverif-mapping.md`, `proverif-syntax.md`, `security-properties.md`.
-
-### Inlined essentials (annotation → ProVerif)
+### Annotation → ProVerif
 
 | Mermaid-style note | ProVerif pattern |
 |--------------------|------------------|

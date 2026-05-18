@@ -8,13 +8,13 @@ Thank you for your interest in contributing to Security Skills! This document co
 make bootstrap
 ```
 
-This installs ruff, ty, pre-commit, and wires up git hooks for automatic linting and validation. Requires [`uv`](https://docs.astral.sh/uv/).
+This installs ruff, ty, [skillsaw](https://github.com/stbenjam/skillsaw), pre-commit, and wires up git hooks for automatic linting and validation. Requires [`uv`](https://docs.astral.sh/uv/).
 
 ## Contribution workflow
 
 1. **Fork** the repository and create a feature branch.
 2. **Add or update** skills following the conventions below.
-3. **Run `make lint`** to validate formatting and front matter.
+3. **Run `make lint`** to validate formatting, front matter, and skill quality (includes [skillsaw](https://github.com/stbenjam/skillsaw) linting).
 4. **Open a pull request** with a clear description of what the skill covers and why.
 
 ## Skill conventions

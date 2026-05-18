@@ -9,8 +9,6 @@ subcategory: "crypto"
 
 # Vector Forge
 
-**References:** Detailed mutation-framework commands, vector patterns, fault simulation, report template, and BLS12-381 lessons learned are in upstream Trail of Bits **prodsec-skills** — `plugins/trailmark/skills/vector-forge/references/` *(see upstream Trail of Bits prodsec-skills for companion files)*.
-
 Uses mutation testing to systematically identify gaps in test vector
 coverage, then generates new test vectors that close those gaps.
 Measures effectiveness by comparing mutation kill rates before and after.
@@ -124,8 +122,7 @@ For each implementation, create a test harness that:
 5. Reports pass/fail per vector with test IDs
 
 **Critical:** A harness that only checks valid vectors will miss all
-permissive mutations (e.g., `&` → `|` in validation). See
-[references/lessons-learned.md](references/lessons-learned.md) §7.
+permissive mutations (e.g., `&` → `|` in validation).
 
 The harness must be runnable by the mutation testing framework.
 For most frameworks this means:
@@ -165,9 +162,6 @@ If the implementation already has test vectors:
 Run mutation testing with existing test vectors only.
 
 ### Framework Selection
-
-See [references/mutation-frameworks.md](references/mutation-frameworks.md)
-for language-specific setup.
 
 | Language | Framework | Command |
 |----------|-----------|---------|
@@ -347,8 +341,7 @@ force execution through that path.
 
 Each negative vector should have **exactly one defect** with
 everything else valid — this isolates which validation check is
-being tested. See [references/vector-patterns.md](references/vector-patterns.md)
-for per-flag construction examples.
+being tested.
 
 ### Fault Simulation (Limb-Width Reimplementation)
 
@@ -358,8 +351,7 @@ untested. To close this gap, reimplement the target algorithm
 at reduced limb widths (8, 16, 25, 32 bits) and deliberately
 inject faults — then generate vectors that catch them.
 
-See [references/fault-simulation.md](references/fault-simulation.md)
-for the full methodology: limb-width selection, fault injection
+The full methodology covers: limb-width selection, fault injection
 catalog, vector extraction, and validation workflow.
 
 ### Cross-Implementation Verification
@@ -374,9 +366,7 @@ independent implementations before being added to the suite:
 ### Vector Format
 
 Use Wycheproof JSON format (`algorithm`, `testGroups[].tests[]`
-with `tcId`, `comment`, `result`, `flags`). See
-[references/vector-patterns.md](references/vector-patterns.md)
-for the full schema.
+with `tcId`, `comment`, `result`, `flags`).
 
 **JSON encoding:** Wycheproof canonicalizes vectors with
 `reformat_json.py`, which unescapes HTML entities. Generate vectors
@@ -388,8 +378,6 @@ with literal characters, not HTML-escaped sequences:
 - **Python:** `json.dumps` is safe by default
 - **Node.js:** `JSON.stringify` is safe by default
 
-See [references/lessons-learned.md](references/lessons-learned.md)
-§14 for details.
 
 ---
 
@@ -398,8 +386,7 @@ See [references/lessons-learned.md](references/lessons-learned.md)
 Re-run mutation testing with the new test vectors included.
 
 **Tip:** Use per-file mutation testing for fast iteration during
-vector development (see [references/lessons-learned.md](references/lessons-learned.md) §12).
-Only run full-crate tests for the final comparison.
+vector development. Only run full-crate tests for the final comparison.
 
 ### Before/After Comparison
 
@@ -416,8 +403,7 @@ Vectors have both **retroactive** value (killing mutants in
 existing code) and **proactive** value (catching bugs in future
 implementations). Generate both kinds — boundary-condition vectors
 may not improve kill rates in mature libraries but will catch bugs
-in new implementations. See
-[references/lessons-learned.md](references/lessons-learned.md) §13.
+in new implementations.
 
 **Retroactive (measurable):** previously survived/uncovered mutants
 become killed, no regressions.
@@ -434,9 +420,7 @@ applies.
 Write `VECTOR_FORGE_REPORT.md` covering: target algorithm,
 implementations tested, baseline results, escape analysis,
 new vectors generated, after results, before/after delta, and
-conclusions. See
-[references/report-template.md](references/report-template.md)
-for the full template.
+conclusions.
 
 ---
 
@@ -469,16 +453,3 @@ Before delivering:
 
 ---
 
-## Supporting Documentation
-
-- **[references/mutation-frameworks.md](references/mutation-frameworks.md)** -
-  Language-specific mutation testing framework setup
-- **[references/vector-patterns.md](references/vector-patterns.md)** -
-  Common test vector patterns for cryptographic primitives
-- **[references/fault-simulation.md](references/fault-simulation.md)** -
-  Limb-width reimplementation for carry, reduction, and overflow faults
-- **[references/report-template.md](references/report-template.md)** -
-  Full markdown template for the Vector Forge report
-- **[references/lessons-learned.md](references/lessons-learned.md)** -
-  BLS12-381 case study: FFI kill rates, timeout masking, cross-package
-  false positives, bitwise mutation gaps, and security-critical priorities

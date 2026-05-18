@@ -54,7 +54,7 @@ These apply to all AWS services (e.g., ElastiCache, RDS, MSK).
 
 ## Amazon ElastiCache / Redis
 
-For detailed Redis and ElastiCache security guidance (authentication, encryption, ACLs, network isolation), see the dedicated skill: [`external-data-source/redis-elasticache-security.md`](../external-data-source/redis-elasticache-security.md). Apply the General AWS Requirements above (IAM, VPC, CloudTrail) to all ElastiCache deployments.
+For detailed Redis and ElastiCache security guidance (authentication, encryption, ACLs, network isolation), see the dedicated skill: [`redis-elasticache-security`](../redis-elasticache-security/SKILL.md). Apply the General AWS Requirements above (IAM, VPC, CloudTrail) to all ElastiCache deployments.
 
 ## Implementation Checklist
 

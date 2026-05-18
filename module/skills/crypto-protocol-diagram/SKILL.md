@@ -182,9 +182,7 @@ Obtain the full spec text:
 - **URL provided** → fetch with WebFetch
 - **Pasted inline** → work directly from conversation context
 
-Then identify the spec format and read
-[references/spec-parsing-patterns.md](references/spec-parsing-patterns.md)
-for format-specific extraction guidance:
+Then identify the spec format for format-specific extraction:
 
 | Format | Signals |
 |--------|---------|
@@ -195,9 +193,8 @@ for format-specific extraction guidance:
 | Tamarin (`.spthy`) | `rule`, `--[ ]->`, `Fr(~x)`, `!Pk(A, pk)`, `In(m)`, `Out(m)` |
 
 If the spec references a known named protocol (TLS, Noise, Signal, X3DH, Double
-Ratchet, FROST), also read
-[references/protocol-patterns.md](references/protocol-patterns.md) to use its
-canonical flow as a skeleton and fill in spec-specific details.
+Ratchet, FROST), use its canonical flow as a skeleton and fill in spec-specific
+details.
 
 ### Step S2: Extract Parties and Roles
 
@@ -211,8 +208,7 @@ Identify all protocol participants. Look for:
 - **Tamarin**: rule names and fact arguments (e.g. `!Pk($A, pk)` — `$A` is a party)
 
 Map each role to a Mermaid `participant` declaration. Use short IDs with
-descriptive aliases (see naming conventions in
-[references/mermaid-sequence-syntax.md](references/mermaid-sequence-syntax.md)).
+descriptive aliases.
 
 ### Step S3: Extract Message Flow
 
@@ -296,8 +292,7 @@ Before moving to Step 6, check for gaps:
 
 ### Step 6: Generate sequenceDiagram
 
-Produce Mermaid syntax following the rules in
-[references/mermaid-sequence-syntax.md](references/mermaid-sequence-syntax.md).
+Produce valid Mermaid `sequenceDiagram` syntax.
 
 **Completeness over brevity.** Show every distinct message type. Omit repeated
 loop iterations (use `loop` blocks instead), but never omit a distinct protocol
@@ -319,9 +314,7 @@ Before delivering:
 - [ ] Cryptographic operations are on the correct party (the one computing them)
 - [ ] If protocol phases are used, no arrows appear outside a phase block
 - [ ] `alt` blocks cover known abort/error paths
-- [ ] Diagram renders without syntax errors (check
-      [references/mermaid-sequence-syntax.md](references/mermaid-sequence-syntax.md)
-      for common pitfalls)
+- [ ] Diagram renders without syntax errors
 - [ ] If spec divergence found, annotated with `⚠️`
 
 **Write the diagram to a file.** Choose a filename derived from the protocol
@@ -350,9 +343,8 @@ After writing the file, print an **ASCII sequence diagram** inline in the
 response, followed by the Protocol Summary. State the output filename so the
 user knows where to find the Mermaid source.
 
-Follow all drawing conventions in
-[references/ascii-sequence-diagram.md](references/ascii-sequence-diagram.md),
-including the inline output format.
+Follow standard ASCII sequence diagram drawing conventions for the inline
+output format.
 
 ---
 
@@ -360,7 +352,7 @@ including the inline output format.
 
 ```
 ── Input is a spec document (not code)?
-│  └─ Step S1: identify format, read references/spec-parsing-patterns.md
+│  └─ Step S1: identify format, extract per format-specific patterns
 │
 ── Input is source code (not a spec)?
 │  └─ Step 1: grep for handshake/round/send/recv entry points
@@ -370,10 +362,10 @@ including the inline output format.
 │     then read code and annotate divergences with ⚠️
 │
 ── Spec is a known protocol (TLS, Noise, Signal, X3DH, FROST)?
-│  └─ Read references/protocol-patterns.md and use canonical flow as skeleton
+│  └─ Use canonical flow as skeleton
 │
 ── Spec is ProVerif (.pv) or Tamarin (.spthy)?
-│  └─ Read references/spec-parsing-patterns.md → Formal Models section
+│  └─ Use formal model extraction patterns (see Step S1 table)
 │
 ── Spec message ordering is ambiguous?
 │  └─ Infer from round/section structure, annotate with ⚠️
@@ -392,13 +384,13 @@ including the inline output format.
 │  └─ Treat function argument passing at role boundaries as messages
 │
 ── MPC / threshold protocol with N parties?
-│  └─ Read references/protocol-patterns.md → MPC section
+│  └─ Use MPC-specific patterns (broadcast, secret sharing, threshold)
 │
 ── Mermaid syntax error?
-│  └─ Read references/mermaid-sequence-syntax.md → Common Pitfalls
+│  └─ Check common pitfalls: quoting, activations, reserved words
 │
 └─ ASCII drawing conventions?
-   └─ Read references/ascii-sequence-diagram.md
+   └─ See inlined essentials below
 ```
 
 ---
@@ -425,20 +417,18 @@ Study the relevant example before working on an unfamiliar input.
 
 ---
 
-## Supporting Documentation
+## Reference Essentials
 
-Full reference files: upstream Trail of Bits **prodsec-skills** — `plugins/trailmark/skills/crypto-protocol-diagram/references/` (`spec-parsing-patterns.md`, `mermaid-sequence-syntax.md`, `protocol-patterns.md`, `ascii-sequence-diagram.md`).
-
-### Inlined essentials (spec parsing — RFC)
+### Spec Parsing — RFC
 
 - Locate handshake / key exchange / authentication sections; if ASCII diagram and normative prose disagree, **prose wins**.
 - Extract parties from introduction or “Notation”; map to `participant ID as DisplayName`.
 - Message flow: arrow diagrams, “A sends … to B”, numbered steps; `MUST`/`SHALL` = required steps; `MAY`/`SHOULD` → optional `opt` blocks in Mermaid.
 - Crypto sections: HKDF, Sign/Verify, `{message}_key` style encryption — annotate with `Note over` using math shorthand.
 
-### Inlined essentials (Mermaid `sequenceDiagram`)
+### Mermaid `sequenceDiagram`
 
 - Start with `sequenceDiagram`; declare participants before first message.
 - Common arrows: `A->>B: msg` (sync send), `A-->>B: reply`; use `alt`/`else` for failure and abort paths.
 - `Note over A:` / `Note over A,B:` for local crypto (DH, HKDF, Sign, Verify, Enc/Dec).
-- Keep labels short; avoid reserved syntax unquoted — follow upstream `mermaid-sequence-syntax.md` for activations, `loop`, `rect`, and escaping pitfalls.
+- Keep labels short; avoid reserved syntax unquoted; see Mermaid docs for activations, `loop`, `rect`, and escaping pitfalls.

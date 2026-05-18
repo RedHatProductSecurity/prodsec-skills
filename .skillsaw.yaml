@@ -1,0 +1,10 @@
+version: "0.10.0"
+
+rules:
+  context-budget:
+    limits:
+      skill:
+        warn: 10000
+        error: 15000
+
+strict: false

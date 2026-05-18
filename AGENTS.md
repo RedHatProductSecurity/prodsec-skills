@@ -65,7 +65,8 @@ Using `module/skills/input-output-sanitization/SKILL.md`: review this MCP server
 4. If copying from an upstream source, note the source commit and license in the appropriate `docs/*-skills.md` provenance section.
 5. Trail of Bits skills are CC BY-SA 4.0 — adapted skills must carry the same license.
 6. Unfinished or unreviewed skills go in `experimental/`, not `module/skills/`.
-7. **Update indexes in the same commit** — stale counts cause confusion for both humans and agents:
+7. **Update .coderabbit.yaml** when appropriate.
+8. **Update indexes in the same commit** — stale counts cause confusion for both humans and agents:
 
  | File | What to update |
  |------|----------------|

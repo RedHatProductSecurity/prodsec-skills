@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help bootstrap lint check check-adrs check-skills check-marketplace fmt
+.PHONY: help bootstrap lint check check-adrs check-skills check-skillsaw check-marketplace fmt
 
 help:
 	@echo "Available targets:"
@@ -9,6 +9,7 @@ help:
 	@echo "  check                - Run ruff and ty checks on Python"
 	@echo "  check-adrs           - Validate ADR format (naming, front matter, sections)"
 	@echo "  check-skills         - Validate skill YAML front matter"
+	@echo "  check-skillsaw       - Lint skills with skillsaw"
 	@echo "  check-marketplace    - Validate marketplace.json skills paths exist"
 	@echo "  fmt                  - Format Python code with ruff"
 
@@ -29,13 +30,16 @@ bootstrap:
 	@echo "==> Installing ty (type checker)..."
 	UV_TOOL_DIR="$(BOOTSTRAP_TOOL_DIR)" UV_TOOL_BIN_DIR="$(BOOTSTRAP_BIN_DIR)" uv tool install ty || \
 	UV_TOOL_DIR="$(BOOTSTRAP_TOOL_DIR)" UV_TOOL_BIN_DIR="$(BOOTSTRAP_BIN_DIR)" uv tool upgrade ty
+	@echo "==> Installing skillsaw (skill linter)..."
+	UV_TOOL_DIR="$(BOOTSTRAP_TOOL_DIR)" UV_TOOL_BIN_DIR="$(BOOTSTRAP_BIN_DIR)" uv tool install skillsaw || \
+	UV_TOOL_DIR="$(BOOTSTRAP_TOOL_DIR)" UV_TOOL_BIN_DIR="$(BOOTSTRAP_BIN_DIR)" uv tool upgrade skillsaw
 	@echo "==> Installing pre-commit..."
 	UV_TOOL_DIR="$(BOOTSTRAP_TOOL_DIR)" UV_TOOL_BIN_DIR="$(BOOTSTRAP_BIN_DIR)" uv tool install pre-commit || \
 	UV_TOOL_DIR="$(BOOTSTRAP_TOOL_DIR)" UV_TOOL_BIN_DIR="$(BOOTSTRAP_BIN_DIR)" uv tool upgrade pre-commit
 	@echo "==> Installing pre-commit hooks..."
 	pre-commit install
 
-lint: check check-adrs check-skills check-marketplace
+lint: check check-adrs check-skills check-skillsaw check-marketplace
 
 check:
 	uvx ruff check .
@@ -45,6 +49,9 @@ check-adrs:
 
 check-skills:
 	@uv run python scripts/check-skills-format.py
+
+check-skillsaw:
+	uvx skillsaw --strict .
 
 check-marketplace:
 	@uv run python scripts/check-marketplace-paths.py
