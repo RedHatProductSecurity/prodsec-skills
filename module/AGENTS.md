@@ -4,7 +4,7 @@ This file is the **module-level** context for assistants consuming this reposito
 
 ## Purpose
 
-This project maintains **138** curated, **tool-agnostic** security skills. Each skill is a directory under `module/skills/<skill-id>/` containing:
+This project maintains **127** curated, **tool-agnostic** security skills. Each skill is a directory under `module/skills/<skill-id>/` containing:
 
 - **`SKILL.md`** — primary guidance (`name`, `description`, `category`, `subcategory` in YAML front matter, then markdown body).
 - **`reference/`** (optional) — supporting procedures and templates loaded on demand.
@@ -39,7 +39,7 @@ Using `module/skills/input-output-sanitization/SKILL.md`: review this MCP server
 ```
 
 ```
-Using `module/skills/cargo-fuzz/SKILL.md`: write a fuzzing harness for this parser.
+Using `module/skills/fuzzing/SKILL.md`: write a fuzzing harness for this parser.
 ```
 
 ```

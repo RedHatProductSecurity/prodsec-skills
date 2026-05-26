@@ -1,13 +1,13 @@
 # Security Testing skills
 
-17 skills for finding vulnerabilities through automated testing — coverage-guided fuzzing and static analysis. Curated for relevance to open source and enterprise development.
+6 skills for finding vulnerabilities through automated testing — coverage-guided fuzzing and static analysis. Curated for relevance to open source and enterprise development.
 
 ## Usage
 
 Reference any skill by path in your assistant prompt:
 
 ```text
-Using `module/skills/cargo-fuzz/SKILL.md`: write a fuzzing harness for this parser.
+Using `module/skills/fuzzing/SKILL.md`: write a fuzzing harness for this parser.
 ```
 
 ```text
@@ -18,22 +18,11 @@ Skills follow the AgentSkills layout: YAML front matter (`name`, `description`, 
 
 ## Categories
 
-### Fuzzing — 12 skills
+### Fuzzing — 1 skill
 
 | Skill | Focus |
 |-------|-------|
-| [`address-sanitizer`](../module/skills/address-sanitizer/SKILL.md) | Detect memory errors (buffer overflows, use-after-free) during C/C++ fuzzing with ASan |
-| [`aflpp`](../module/skills/aflpp/SKILL.md) | Multi-core coverage-guided fuzzing of C/C++ with AFL++ |
-| [`atheris`](../module/skills/atheris/SKILL.md) | Coverage-guided fuzzing of pure Python and Python C extensions |
-| [`cargo-fuzz`](../module/skills/cargo-fuzz/SKILL.md) | Fuzzing Rust projects with cargo-fuzz and a libFuzzer backend |
-| [`coverage-analysis`](../module/skills/coverage-analysis/SKILL.md) | Measuring code coverage to assess harness effectiveness and identify blockers |
-| [`fuzzing-dictionary`](../module/skills/fuzzing-dictionary/SKILL.md) | Building domain-specific token dictionaries for parsers, protocols, and formats |
-| [`fuzzing-obstacles`](../module/skills/fuzzing-obstacles/SKILL.md) | Patching checksums, global state, and other barriers to fuzzer progress |
-| [`harness-writing`](../module/skills/harness-writing/SKILL.md) | Writing effective fuzz targets across languages |
-| [`libafl`](../module/skills/libafl/SKILL.md) | Building custom fuzzers with LibAFL's modular fuzzing library |
-| [`libfuzzer`](../module/skills/libfuzzer/SKILL.md) | Coverage-guided fuzzing of C/C++ code compiled with Clang |
-| [`ossfuzz`](../module/skills/ossfuzz/SKILL.md) | Enrolling open source projects in OSS-Fuzz for continuous fuzzing |
-| [`ruzzy`](../module/skills/ruzzy/SKILL.md) | Coverage-guided fuzzing of Ruby code and Ruby C extensions |
+| [`fuzzing`](../module/skills/fuzzing/SKILL.md) | Coverage-guided fuzzing for C/C++, Rust, Python, and Ruby — detects language, picks the right fuzzer, guides harness writing, sanitizers, corpus management, and campaign execution. Tool-specific references: [libFuzzer](../module/skills/fuzzing/references/libfuzzer.md), [AFL++](../module/skills/fuzzing/references/aflpp.md), [LibAFL](../module/skills/fuzzing/references/libafl.md), [cargo-fuzz](../module/skills/fuzzing/references/cargo-fuzz.md), [Atheris](../module/skills/fuzzing/references/atheris.md), [Ruzzy](../module/skills/fuzzing/references/ruzzy.md), [OSS-Fuzz](../module/skills/fuzzing/references/ossfuzz.md) |
 
 ### Static analysis — 5 skills
 

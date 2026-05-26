@@ -21,7 +21,7 @@ Using `module/skills/input-output-sanitization/SKILL.md`: review this MCP server
 ```
 
 ```
-Using `module/skills/cargo-fuzz/SKILL.md`: write a fuzzing harness for this parser.
+Using `module/skills/fuzzing/SKILL.md`: write a fuzzing harness for this parser.
 ```
 
 ```
