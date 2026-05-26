@@ -139,7 +139,7 @@ Best path constraint solver available. Build a CMPLOG-instrumented target:
 
 ## Output Structure
 
-```
+```text
 out/default/
 ├── crashes/    # Crashing inputs
 ├── hangs/      # Hanging inputs

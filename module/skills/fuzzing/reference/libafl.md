@@ -50,6 +50,7 @@ cargo add libafl@0.13 libafl_targets@0.13 libafl_bolts@0.13 libafl_cc@0.13 \
 ```
 
 Add to `Cargo.toml`:
+
 ```toml
 [lib]
 crate-type = ["staticlib"]
@@ -122,6 +123,7 @@ pub extern "C" fn libafl_main() {
 ### Compiler Wrapper (Recommended)
 
 Create `src/bin/libafl_cc.rs`:
+
 ```rust
 use libafl_cc::{ClangWrapper, CompilerWrapper, Configuration, ToolWrapper};
 

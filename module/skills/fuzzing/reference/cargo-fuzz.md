@@ -59,6 +59,7 @@ fuzz_target!(|config: your_crate::Config| {
 ```
 
 Add to library's `Cargo.toml`:
+
 ```toml
 [dependencies]
 arbitrary = { version = "1", features = ["derive"] }

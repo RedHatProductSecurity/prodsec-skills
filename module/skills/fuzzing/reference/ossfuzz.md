@@ -103,6 +103,7 @@ atheris.Fuzz()
 ```
 
 **build.sh:**
+
 ```bash
 pip3 install .
 for fuzzer in $(find $SRC -name 'fuzz_*.py'); do
@@ -120,6 +121,7 @@ sanitizers:
 ```
 
 **build.sh:**
+
 ```bash
 cargo fuzz build -O --debug-assertions
 cp fuzz/target/x86_64-unknown-linux-gnu/release/fuzz_target_1 $OUT/

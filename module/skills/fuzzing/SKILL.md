@@ -1,10 +1,9 @@
 ---
 name: fuzzing
 description: >
-  Coverage-guided fuzzing for C/C++, Rust, Python, and Ruby projects. Detects the
-  project language, selects the right fuzzer, and guides harness writing, compilation,
-  corpus management, sanitizer integration, and campaign execution. Use when fuzzing
-  any codebase or setting up continuous fuzzing infrastructure.
+  Use when writing a fuzz harness, setting up a fuzzing campaign, integrating
+  sanitizers, managing a corpus, or enrolling a project in continuous fuzzing for
+  C/C++, Rust, Python, or Ruby.
 license: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 origin: Adapted from Trail of Bits Skills Marketplace (https://github.com/trailofbits/skills)
 category: "security_testing"
@@ -21,22 +20,22 @@ Coverage-guided fuzzing automatically generates inputs to find crashes, memory c
 
 | Language | Default Fuzzer | When to Upgrade |
 |----------|---------------|-----------------|
-| **C/C++** | [libFuzzer](references/libfuzzer.md) | Switch to [AFL++](references/aflpp.md) for multi-core; [LibAFL](references/libafl.md) for custom fuzzers |
-| **Rust** | [cargo-fuzz](references/cargo-fuzz.md) | Switch to [LibAFL](references/libafl.md) for advanced research |
-| **Python** | [Atheris](references/atheris.md) | — |
-| **Ruby** | [Ruzzy](references/ruzzy.md) | — |
+| **C/C++** | [libFuzzer](reference/libfuzzer.md) | Switch to [AFL++](reference/aflpp.md) for multi-core; [LibAFL](reference/libafl.md) for custom fuzzers |
+| **Rust** | [cargo-fuzz](reference/cargo-fuzz.md) | Switch to [LibAFL](reference/libafl.md) for advanced research |
+| **Python** | [Atheris](reference/atheris.md) | — |
+| **Ruby** | [Ruzzy](reference/ruzzy.md) | — |
 
 ### By Need
 
 | Need | Fuzzer |
 |------|--------|
-| Quick single-core C/C++ setup | [libFuzzer](references/libfuzzer.md) |
-| Multi-core C/C++ campaigns | [AFL++](references/aflpp.md) |
-| Custom mutators or research | [LibAFL](references/libafl.md) |
-| Cargo-based Rust project | [cargo-fuzz](references/cargo-fuzz.md) |
-| Python code or C extensions | [Atheris](references/atheris.md) |
-| Ruby code or C extensions | [Ruzzy](references/ruzzy.md) |
-| Continuous fuzzing for open source | [OSS-Fuzz](references/ossfuzz.md) |
+| Quick single-core C/C++ setup | [libFuzzer](reference/libfuzzer.md) |
+| Multi-core C/C++ campaigns | [AFL++](reference/aflpp.md) |
+| Custom mutators or research | [LibAFL](reference/libafl.md) |
+| Cargo-based Rust project | [cargo-fuzz](reference/cargo-fuzz.md) |
+| Python code or C extensions | [Atheris](reference/atheris.md) |
+| Ruby code or C extensions | [Ruzzy](reference/ruzzy.md) |
+| Continuous fuzzing for open source | [OSS-Fuzz](reference/ossfuzz.md) |
 
 ## Writing a Harness
 
@@ -45,6 +44,7 @@ The harness is the entry point that receives random bytes and calls your target 
 ### Minimal Harnesses
 
 **C/C++ (libFuzzer / AFL++):**
+
 ```c++
 #include <stdint.h>
 #include <stddef.h>
@@ -57,6 +57,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 ```
 
 **Rust (cargo-fuzz):**
+
 ```rust
 #![no_main]
 use libfuzzer_sys::fuzz_target;
@@ -68,6 +69,7 @@ fuzz_target!(|data: &[u8]| {
 ```
 
 **Python (Atheris):**
+
 ```python
 import sys, atheris
 
@@ -85,6 +87,7 @@ atheris.Fuzz()
 ```
 
 **Ruby (Ruzzy) — C extension:**
+
 ```ruby
 require 'your_gem'
 require 'ruzzy'
@@ -117,6 +120,7 @@ Ruzzy.fuzz(test_one_input)
 For APIs needing typed data, use `FuzzedDataProvider` (C/C++) or the `arbitrary` crate (Rust):
 
 **C++ — FuzzedDataProvider:**
+
 ```c++
 #include "FuzzedDataProvider.h"
 
@@ -130,6 +134,7 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 ```
 
 **Rust — arbitrary crate:**
+
 ```rust
 use arbitrary::Arbitrary;
 
@@ -270,6 +275,7 @@ Don't use `-fsanitize=fuzzer` for coverage builds — it conflicts with profile 
 Checksums, PRNGs, and complex validation block fuzzer progress. Use conditional compilation to bypass them during fuzzing while preserving production behavior.
 
 **C/C++:**
+
 ```c++
 if (checksum != expected) {
 #ifndef FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION
@@ -279,6 +285,7 @@ if (checksum != expected) {
 ```
 
 **Rust:**
+
 ```rust
 if checksum != expected {
     if !cfg!(fuzzing) {

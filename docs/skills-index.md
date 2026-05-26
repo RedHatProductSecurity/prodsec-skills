@@ -51,7 +51,7 @@ See [Secure development skills](secure-development-skills.md) for the full index
 
 | Skill | Description |
 |-------|-------------|
-| [`fuzzing`](../module/skills/fuzzing/SKILL.md) | Coverage-guided fuzzing for C/C++, Rust, Python, and Ruby — language detection, harness writing, sanitizers, corpus management, and campaign execution. References: [libFuzzer](../module/skills/fuzzing/references/libfuzzer.md), [AFL++](../module/skills/fuzzing/references/aflpp.md), [LibAFL](../module/skills/fuzzing/references/libafl.md), [cargo-fuzz](../module/skills/fuzzing/references/cargo-fuzz.md), [Atheris](../module/skills/fuzzing/references/atheris.md), [Ruzzy](../module/skills/fuzzing/references/ruzzy.md), [OSS-Fuzz](../module/skills/fuzzing/references/ossfuzz.md) |
+| [`fuzzing`](../module/skills/fuzzing/SKILL.md) | Coverage-guided fuzzing for C/C++, Rust, Python, and Ruby — language detection, harness writing, sanitizers, corpus management, and campaign execution. References: [libFuzzer](../module/skills/fuzzing/reference/libfuzzer.md), [AFL++](../module/skills/fuzzing/reference/aflpp.md), [LibAFL](../module/skills/fuzzing/reference/libafl.md), [cargo-fuzz](../module/skills/fuzzing/reference/cargo-fuzz.md), [Atheris](../module/skills/fuzzing/reference/atheris.md), [Ruzzy](../module/skills/fuzzing/reference/ruzzy.md), [OSS-Fuzz](../module/skills/fuzzing/reference/ossfuzz.md) |
 
 ### `security_testing/static-analysis/` — 5 skills
 

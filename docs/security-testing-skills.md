@@ -22,7 +22,7 @@ Skills follow the AgentSkills layout: YAML front matter (`name`, `description`, 
 
 | Skill | Focus |
 |-------|-------|
-| [`fuzzing`](../module/skills/fuzzing/SKILL.md) | Coverage-guided fuzzing for C/C++, Rust, Python, and Ruby — detects language, picks the right fuzzer, guides harness writing, sanitizers, corpus management, and campaign execution. Tool-specific references: [libFuzzer](../module/skills/fuzzing/references/libfuzzer.md), [AFL++](../module/skills/fuzzing/references/aflpp.md), [LibAFL](../module/skills/fuzzing/references/libafl.md), [cargo-fuzz](../module/skills/fuzzing/references/cargo-fuzz.md), [Atheris](../module/skills/fuzzing/references/atheris.md), [Ruzzy](../module/skills/fuzzing/references/ruzzy.md), [OSS-Fuzz](../module/skills/fuzzing/references/ossfuzz.md) |
+| [`fuzzing`](../module/skills/fuzzing/SKILL.md) | Coverage-guided fuzzing for C/C++, Rust, Python, and Ruby — detects language, picks the right fuzzer, guides harness writing, sanitizers, corpus management, and campaign execution. Tool-specific references: [libFuzzer](../module/skills/fuzzing/reference/libfuzzer.md), [AFL++](../module/skills/fuzzing/reference/aflpp.md), [LibAFL](../module/skills/fuzzing/reference/libafl.md), [cargo-fuzz](../module/skills/fuzzing/reference/cargo-fuzz.md), [Atheris](../module/skills/fuzzing/reference/atheris.md), [Ruzzy](../module/skills/fuzzing/reference/ruzzy.md), [OSS-Fuzz](../module/skills/fuzzing/reference/ossfuzz.md) |
 
 ### Static analysis — 5 skills
 

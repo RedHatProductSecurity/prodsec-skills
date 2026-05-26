@@ -36,12 +36,14 @@ Should quickly find a crash, confirming Ruzzy works.
 Pure Ruby requires two scripts (tracer + harness) due to interpreter implementation details.
 
 **Tracer (`test_tracer.rb`):**
+
 ```ruby
 require 'ruzzy'
 Ruzzy.trace('test_harness.rb')
 ```
 
 **Harness (`test_harness.rb`):**
+
 ```ruby
 require 'ruzzy'
 require_relative 'my_parser'
@@ -58,6 +60,7 @@ Ruzzy.fuzz(test_one_input)
 ```
 
 Run:
+
 ```bash
 LD_PRELOAD=$(ruby -e 'require "ruzzy"; print Ruzzy::ASAN_PATH') ruby test_tracer.rb
 ```
@@ -76,6 +79,7 @@ CXXFLAGS="-fsanitize=address,fuzzer-no-link -fno-omit-frame-pointer -fno-common 
 ```
 
 **Harness:**
+
 ```ruby
 require 'your_gem'
 require 'ruzzy'
@@ -92,6 +96,7 @@ Ruzzy.fuzz(test_one_input)
 ```
 
 Run:
+
 ```bash
 LD_PRELOAD=$(ruby -e 'require "ruzzy"; print Ruzzy::ASAN_PATH') ruby harness.rb corpus/
 ```

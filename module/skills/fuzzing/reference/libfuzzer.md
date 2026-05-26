@@ -88,7 +88,7 @@ target_link_libraries(fuzz -fsanitize=fuzzer -fsanitize=address)
 
 ### Interpreting Output
 
-```
+```text
 #2      INITED cov: 3 ft: 4 corp: 1/1b exec/s: 0 rss: 26Mb
 #57     NEW    cov: 4 ft: 5 corp: 2/4b lim: 4 exec/s: 0 rss: 26Mb
 ```
