@@ -1,6 +1,6 @@
 # Security Testing skills
 
-17 skills for finding vulnerabilities through automated testing — coverage-guided fuzzing and static analysis. Curated for relevance to open source and enterprise development.
+18 skills for finding vulnerabilities through automated and manual testing — coverage-guided fuzzing, static analysis, and manual security test authoring. Curated for relevance to open source and enterprise development.
 
 ## Usage
 
@@ -45,7 +45,14 @@ Skills follow the AgentSkills layout: YAML front matter (`name`, `description`, 
 | [`semgrep-rule-creator`](../module/skills/semgrep-rule-creator/SKILL.md) | Writing custom Semgrep rules for security vulnerabilities and bug patterns |
 | [`semgrep-rule-variant-creator`](../module/skills/semgrep-rule-variant-creator/SKILL.md) | Porting existing Semgrep rules to new target languages |
 
+### Manual testing — 1 skill
+
+| Skill | Focus |
+|-------|-------|
+| [`security-test-writing`](../module/skills/security-test-writing/SKILL.md) | Writing manually authored security tests that prove vulnerabilities are real and fixes are effective |
+
 ## Provenance
 
 - **Fuzzing skills**: Adapted from Trail of Bits Skills Marketplace ([trailofbits/skills](https://github.com/trailofbits/skills)). Upstream commit: `88947f59f1032c1f4d84d6fab244acff6f014728` (2026-04-07). License: CC BY-SA 4.0.
 - **Static analysis skills**: Adapted from Trail of Bits Skills Marketplace. Same upstream commit and license. Curated versions inline reference docs and drop tool-specific artifacts (plugin.json, hooks, scripts).
+- **Manual testing skills**: Authored by Red Hat Product Security.

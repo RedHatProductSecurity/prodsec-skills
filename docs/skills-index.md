@@ -1,14 +1,14 @@
 # Skills Index
 
-138 production-ready skills. All skills are tool-agnostic markdown — they work with Claude Code, Cursor, Copilot, or any assistant that can read files.
+142 production-ready skills. All skills are tool-agnostic markdown — they work with Claude Code, Cursor, Copilot, or any assistant that can read files.
 
 ## Categories
 
 | Category | Skills | Purpose |
 |----------|--------|---------|
-| [`secure_development/`](#secure_development) | 113 | Building secure software — AI/agentic infrastructure, cryptography, supply chain, security principles, technology-specific hardening |
-| [`security_testing/`](#security_testing) | 17 | Finding vulnerabilities — fuzzing and static analysis |
-| [`security_auditing/`](#security_auditing) | 4 | Security review workflows |
+| [`secure_development/`](#secure_development) | 114 | Building secure software — AI/agentic infrastructure, cryptography, supply chain, security principles, technology-specific hardening |
+| [`security_testing/`](#security_testing) | 18 | Finding vulnerabilities — fuzzing, static analysis, and manual security testing |
+| [`security_auditing/`](#security_auditing) | 6 | Security review workflows |
 | [`developer_tooling/`](#developer_tooling) | 4 | General-purpose development tooling |
 
 ---
@@ -23,7 +23,7 @@ See [Secure development skills](secure-development-skills.md) for the full index
 | `api-gateway/` | 4 | Authentication enforcement, routing, rate limiting, request validation |
 | `api-keys/` | 1 | Avoiding API keys; prefer IdP-issued tokens |
 | `authorization-server/` | 4 | OAuth 2.1, dynamic client registration, discovery |
-| `crypto/` | 9 | Constant-time analysis, protocol diagramming, zeroization, test vectors, algorithm selection, FIPS compliance, and post-quantum readiness |
+| `crypto/` | 10 | Constant-time analysis, protocol diagramming, zeroization, test vectors, algorithm selection, FIPS compliance, post-quantum readiness, and PQC scanning methodology |
 | `eval-sandbox/` | 1 | Output validation in isolated sandboxes |
 | `external-data-source/` | 6 | Auth, authz, encryption, logging, network ACLs, Redis/ElastiCache for external connections |
 | `guardrails/` | 1 | Bidirectional prompt and output filtering |
@@ -74,17 +74,25 @@ See [Secure development skills](secure-development-skills.md) for the full index
 | [`semgrep-rule-creator`](../module/skills/semgrep-rule-creator/SKILL.md) | Writing custom Semgrep rules for security vulnerabilities and bug patterns |
 | [`semgrep-rule-variant-creator`](../module/skills/semgrep-rule-variant-creator/SKILL.md) | Porting existing Semgrep rules to new target languages |
 
+### `security_testing/manual-testing/` — 1 skill
+
+| Skill | Description |
+|-------|-------------|
+| [`security-test-writing`](../module/skills/security-test-writing/SKILL.md) | Writing manually authored security tests that prove vulnerabilities are real and fixes are effective |
+
 ---
 
 ## `security_auditing/`
 
-### `security_auditing/audit-workflow/` — 4 skills
+### `security_auditing/audit-workflow/` — 6 skills
 
 | Skill | Description |
 |-------|-------------|
+| [`ai-code-review`](../module/skills/ai-code-review/SKILL.md) | Security review checklist for AI-generated code, covering hallucinated APIs, plausible-but-wrong logic, pattern drift, and stale dependencies |
 | [`audit-context-building`](../module/skills/audit-context-building/SKILL.md) | Line-by-line codebase analysis to build deep architectural context before a security review |
 | [`differential-review`](../module/skills/differential-review/SKILL.md) | Security-focused review of PRs, commits, and diffs with blast radius analysis |
 | [`fp-check`](../module/skills/fp-check/SKILL.md) | Systematic verification of suspected bugs to eliminate false positives |
+| [`inconsistency-detection`](../module/skills/inconsistency-detection/SKILL.md) | Discover new vulnerabilities by comparing sibling implementations for missing security guards |
 | [`variant-analysis`](../module/skills/variant-analysis/SKILL.md) | Finding related vulnerabilities across a codebase after discovering an initial issue |
 
 ---
