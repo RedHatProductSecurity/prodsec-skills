@@ -1,6 +1,6 @@
 # Secure Development skills
 
-113 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
+114 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
 
 ## Usage
 
@@ -39,7 +39,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 
 | Subcategory | Skills | Focus |
 |-------------|--------|-------|
-| [`crypto`](#crypto) | 9 | Constant-time analysis, protocol diagramming, zeroization audit, test vectors (Wycheproof), algorithm selection, FIPS compliance, and post-quantum readiness |
+| [`crypto`](#crypto) | 10 | Constant-time analysis, protocol diagramming, zeroization audit, test vectors (Wycheproof), algorithm selection, FIPS compliance, post-quantum readiness, and PQC scanning methodology |
 | [`secure-config`](#secure-config) | 5 | Insecure defaults, API sharp edges, agentic CI/CD action auditing, Apache Camel security, build YAML misconfiguration (GitLab CI, Tekton, Containerfile) |
 | [`supply-chain`](#supply-chain) | 5 | Dependency risk auditing, SBOM/provenance, secure pipelines, software signing, vulnerability management |
 
@@ -207,6 +207,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | [`mermaid-to-proverif`](../module/skills/mermaid-to-proverif/SKILL.md) | Translate Mermaid sequence diagrams of cryptographic protocols into ProVerif models |
 | [`vector-forge`](../module/skills/vector-forge/SKILL.md) | Mutation-driven test vector generation for cryptographic implementations |
 | [`wycheproof`](../module/skills/wycheproof/SKILL.md) | Run Wycheproof test vectors against cryptographic implementations |
+| [`pqc-scanning-methodology`](../module/skills/pqc-scanning-methodology/SKILL.md) | Systematically scan a codebase for quantum-vulnerable cryptography and build a PQC remediation plan |
 | [`zeroize-audit`](../module/skills/zeroize-audit/SKILL.md) | Audit code for proper zeroization of sensitive cryptographic material |
 
 ### secure-config

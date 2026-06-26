@@ -1,6 +1,6 @@
 # Security Auditing skills
 
-4 skills for structured security review workflows — building context, reviewing diffs, eliminating false positives, and finding vulnerability variants.
+6 skills for structured security review workflows — building context, reviewing diffs, eliminating false positives, finding vulnerability variants, detecting inconsistencies, and reviewing AI-generated code.
 
 ## Usage
 
@@ -14,13 +14,15 @@ Skills follow the AgentSkills layout: YAML front matter (`name`, `description`, 
 
 ## Categories
 
-### Audit workflow — 4 skills
+### Audit workflow — 6 skills
 
 | Skill | Focus |
 |-------|-------|
+| [`ai-code-review`](../module/skills/ai-code-review/SKILL.md) | Security review checklist for AI-generated or AI-assisted code, covering hallucinated APIs, logic errors, stale dependencies, and abandoned scaffolding |
 | [`audit-context-building`](../module/skills/audit-context-building/SKILL.md) | Line-by-line codebase analysis to build deep architectural context before a security review |
 | [`differential-review`](../module/skills/differential-review/SKILL.md) | Security-focused review of PRs, commits, and diffs with blast radius analysis |
 | [`fp-check`](../module/skills/fp-check/SKILL.md) | Systematic verification of suspected bugs to eliminate false positives |
+| [`inconsistency-detection`](../module/skills/inconsistency-detection/SKILL.md) | Discover new vulnerabilities by comparing sibling implementations for missing security guards |
 | [`variant-analysis`](../module/skills/variant-analysis/SKILL.md) | Finding related vulnerabilities across a codebase after discovering an initial issue |
 
 ## Provenance
