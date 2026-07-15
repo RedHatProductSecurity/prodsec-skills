@@ -1,8 +1,9 @@
 ---
 name: authentication
 description: Enforce standard authentication for external data source connections. Use when integrating, configuring, or reviewing connections from AI systems to external databases, APIs, or data services.
-category: "secure_development"
-subcategory: "external-data-source"
+metadata:
+  category: secure_development
+  subcategory: external-data-source
 ---
 
 # Authentication for External Data Sources

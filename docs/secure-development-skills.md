@@ -1,6 +1,8 @@
 # Secure Development skills
 
-113 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
+105 tool-agnostic secure development skills organized by category, covering **AI/agentic infrastructure security**, **code-level secure configuration**, **security design principles**, and **technology-specific hardening**.
+
+> **Note:** Eight skills formerly indexed here (`authentication`, `container-hardening`, `input-validation-injection`, `logging`, `pod-access-control`, `scc-security`, `secure-by-design`, `web-application-security`) moved to the curated [GE Core](ge-core.md) set at `ge-core/<name>/SKILL.md`.
 
 ## Usage
 
@@ -25,7 +27,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | [`api-keys`](#api-keys) | 1 | Avoiding API keys in production; prefer IdP-issued tokens |
 | [`authorization-server`](#authorization-server) | 4 | OAuth 2.1 implementation, dynamic client registration, discovery for MCP |
 | [`eval-sandbox`](#eval-sandbox) | 1 | Output validation in isolated sandboxes before use |
-| [`external-data-source`](#external-data-source) | 6 | Auth, authz, encryption, logging, network ACLs, Redis/ElastiCache for external data connections |
+| [`external-data-source`](#external-data-source) | 4 | Authz, encryption, network ACLs, Redis/ElastiCache for external data connections |
 | [`guardrails`](#guardrails) | 1 | Bidirectional filtering of prompts and model outputs |
 | [`inference-engine`](#inference-engine) | 7 | Isolation, JWT enforcement, model scanning/signing, OIDC, token lifecycle |
 | [`large-language-model`](#large-language-model) | 3 | File protection, prompt injection mitigation, third-party model security |
@@ -47,17 +49,17 @@ Teams copying subsets into another repo can omit skill directories they do not n
 
 | Subcategory | Skills | Focus |
 |-------------|--------|-------|
-| [`security-principles`](#security-principles) | 5 | Defense in depth, least privilege and mediation, secure by design (SD3), simplicity and isolation, transparency and usability |
+| [`security-principles`](#security-principles) | 4 | Defense in depth, least privilege and mediation, simplicity and isolation, transparency and usability |
 
 ### Technology-specific security
 
 | Subcategory | Skills | Focus |
 |-------------|--------|-------|
 | [`cloud-infrastructure`](#cloud-infrastructure) | 2 | AWS security baselines (IAM, VPC, CloudTrail, RDS, KMS), general database security |
-| [`kubernetes`](#kubernetes) | 13 | Container hardening, health probes, Helm chart security, linux capabilities, network security, observability, operator security, platform integrity, pod access control, SCC security, TLS compliance, workload resilience, cpu performance |
+| [`kubernetes`](#kubernetes) | 10 | Health probes, Helm chart security, linux capabilities, network security, observability, operator security, platform integrity, TLS compliance, workload resilience, cpu performance |
 | [`languages`](#languages) | 3 | Go secure coding, compiler hardening (flags, sanitizers), C/C++ memory and string safety |
 | [`messaging`](#messaging) | 2 | Kafka/AMQ Streams (TLS, SASL, ACLs), MQTT (auth, topic ACLs, payload encryption) |
-| [`web-security`](#web-security) | 9 | Web application security, HTTP security headers, React XSS prevention, GraphQL hardening, client-side security (XSS/CSRF/CSP), input validation and injection, session management, file upload security, XML and serialization hardening |
+| [`web-security`](#web-security) | 7 | HTTP security headers, React XSS prevention, GraphQL hardening, client-side security (XSS/CSRF/CSP), session management, file upload security, XML and serialization hardening |
 
 ---
 
@@ -107,10 +109,8 @@ Teams copying subsets into another repo can omit skill directories they do not n
 
 | Skill | Description |
 |-------|-------------|
-| [`authentication`](../module/skills/authentication/SKILL.md) | Authenticate connections to external data sources from AI agents |
 | [`authorization`](../module/skills/authorization/SKILL.md) | Authorize access to external data sources with least-privilege controls |
 | [`encrypted-communication`](../module/skills/encrypted-communication/SKILL.md) | Enforce encrypted communication with external data sources |
-| [`logging`](../module/skills/logging/SKILL.md) | Log access to external data sources for audit and anomaly detection |
 | [`network-acls`](../module/skills/network-acls/SKILL.md) | Restrict external data source connectivity with network ACLs |
 | [`redis-elasticache-security`](../module/skills/redis-elasticache-security/SKILL.md) | Harden Redis/ElastiCache used as external data sources for AI systems |
 
@@ -235,7 +235,6 @@ Teams copying subsets into another repo can omit skill directories they do not n
 |-------|-------------|
 | [`defense-in-depth`](../module/skills/defense-in-depth/SKILL.md) | Apply layered security controls to limit blast radius |
 | [`least-privilege-and-mediation`](../module/skills/least-privilege-and-mediation/SKILL.md) | Enforce least privilege and complete mediation in access control design |
-| [`secure-by-design`](../module/skills/secure-by-design/SKILL.md) | Apply SD3 (Secure by Design, Default, Deployment) principles |
 | [`simplicity-and-isolation`](../module/skills/simplicity-and-isolation/SKILL.md) | Reduce attack surface through simplicity and component isolation |
 | [`transparency-and-usability`](../module/skills/transparency-and-usability/SKILL.md) | Design security controls that are transparent and usable by default |
 
@@ -250,7 +249,6 @@ Teams copying subsets into another repo can omit skill directories they do not n
 
 | Skill | Description |
 |-------|-------------|
-| [`container-hardening`](../module/skills/container-hardening/SKILL.md) | Harden container images and runtime configuration for Kubernetes |
 | [`cpu-performance`](../module/skills/cpu-performance/SKILL.md) | Configure CPU isolation, scheduling policies, and storage management for latency-sensitive Kubernetes workloads |
 | [`health-probes`](../module/skills/health-probes/SKILL.md) | Configure Kubernetes health probes, lifecycle hooks, and termination policies |
 | [`helm-chart-security`](../module/skills/helm-chart-security/SKILL.md) | Audit and harden Helm chart security configurations |
@@ -259,8 +257,6 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | [`observability`](../module/skills/observability/SKILL.md) | Configure Kubernetes workload observability including logging, CRD status, port naming, and API compatibility |
 | [`operator-security`](../module/skills/operator-security/SKILL.md) | Enforce least-privilege RBAC and secure runtime configuration for Kubernetes Operators |
 | [`platform-integrity`](../module/skills/platform-integrity/SKILL.md) | Validate Kubernetes platform configuration including boot parameters, hugepages, kernel state, and OpenShift lifecycle |
-| [`pod-access-control`](../module/skills/pod-access-control/SKILL.md) | Configure Kubernetes RBAC bindings, service accounts, namespaces, resource quotas, and service types for least-privilege access control |
-| [`scc-security`](../module/skills/scc-security/SKILL.md) | Review OpenShift Security Context Constraints for correct privilege levels |
 | [`tls-compliance`](../module/skills/tls-compliance/SKILL.md) | Enforce TLS compliance for Kubernetes and OpenShift workloads including version enforcement, cipher suites, and certificate management |
 | [`workload-resilience`](../module/skills/workload-resilience/SKILL.md) | Configure Kubernetes workload resilience including pod scheduling, scaling, high availability, and disruption budgets |
 
@@ -287,10 +283,8 @@ Teams copying subsets into another repo can omit skill directories they do not n
 | [`file-handling-uploads`](../module/skills/file-handling-uploads/SKILL.md) | Secure file upload handling to prevent path traversal and malware |
 | [`graphql-security`](../module/skills/graphql-security/SKILL.md) | Secure GraphQL API deployments against introspection leaks, deep query abuse, and authorization bypass |
 | [`http-security-headers`](../module/skills/http-security-headers/SKILL.md) | Configure HTTP security headers (CSP, HSTS, X-Frame-Options, etc.) |
-| [`input-validation-injection`](../module/skills/input-validation-injection/SKILL.md) | Validate and sanitize input to prevent injection attacks |
 | [`react-security`](../module/skills/react-security/SKILL.md) | Enforce XSS prevention and secure rendering in React applications |
 | [`session-management-cookies`](../module/skills/session-management-cookies/SKILL.md) | Harden session management and cookie security attributes |
-| [`web-application-security`](../module/skills/web-application-security/SKILL.md) | General web application security review and hardening |
 | [`xml-serialization-security`](../module/skills/xml-serialization-security/SKILL.md) | Prevent XXE and insecure deserialization in XML and serialization handling |
 
 ## Provenance
@@ -313,7 +307,7 @@ Teams copying subsets into another repo can omit skill directories they do not n
 - **Source**: CoSAI [Project CodeGuard](https://github.com/cosai-oasis/project-codeguard) (v1.3.1)
 - **License**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - **Conversion**: CodeGuard consolidated rules adapted to individual prodsec-skills format (YAML frontmatter, tool-agnostic markdown). OWASP backing sources used for enrichment. `build-yaml-misconfiguration` is a new skill authored for GitLab CI and Tekton, not a direct CodeGuard import.
-- **Skills**: `client-side-security`, `file-handling-uploads`, `input-validation-injection`, `session-management-cookies`, `xml-serialization-security`, `safe-c-functions`, `algorithm-selection`, `build-yaml-misconfiguration` (see `module/skills/<name>/SKILL.md`)
+- **Skills**: `client-side-security`, `file-handling-uploads`, `input-validation-injection` (now in `ge-core/`), `session-management-cookies`, `xml-serialization-security`, `safe-c-functions`, `algorithm-selection`, `build-yaml-misconfiguration` (see `module/skills/<name>/SKILL.md`)
 - **Gap analysis**: See `docs/codeguard-gap-analysis.md` for import decisions, skipped items, and items deferred for future skills.
 
 ## Contributing

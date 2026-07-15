@@ -116,6 +116,10 @@ module/skills/model-registry-logging/SKILL.md    # model-registry
 The convention `<subcategory>-<name>` is applied to the more specific
 occurrence, with the `name` frontmatter field updated to match.
 
+*(The external-data-source `logging` skill shown above has since moved to the
+`ge-core/` directory at the repository root; the naming rule stands as
+illustrated.)*
+
 ## Decision
 
 Restructure `prodsec-skills` to adopt the AI Context Module format:

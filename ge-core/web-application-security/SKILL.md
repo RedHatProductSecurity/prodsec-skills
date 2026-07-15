@@ -4,8 +4,9 @@ description: >
   Review web application security controls against OWASP-aligned risks. Use
   when building, auditing, or reviewing server-side web applications that
   handle user input, sessions, authentication, or access control.
-category: "secure_development"
-subcategory: "web-security"
+metadata:
+  category: secure_development
+  subcategory: web-security
 ---
 
 # Web Application Security

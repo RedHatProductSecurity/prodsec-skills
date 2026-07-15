@@ -145,6 +145,8 @@ module/                  # AI Context Module (packaged for assistants / Lola)
   skills/<skill-id>/     # One directory per skill
     SKILL.md
     reference/           # Optional supporting docs (AgentSkills layout)
+ge-core/<skill-id>/      # GE Core — 12 curated skills for Global Engineering (see docs/ge-core.md)
+  SKILL.md               # agentskills.io-compliant frontmatter
 scripts/                 # Validators and utilities (not part of the module)
 docs/                    # Indexes, ADRs, design notes
 experimental/            # Work in progress; contributions welcome

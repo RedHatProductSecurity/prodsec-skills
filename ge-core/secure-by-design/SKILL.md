@@ -4,8 +4,9 @@ description: >
   Apply Secure by Design, by Default, and in Deployment (SD3) principles.
   Use when reviewing default configurations, setup processes, update
   mechanisms, or evaluating whether a system fails open or closed.
-category: "secure_development"
-subcategory: "security-principles"
+metadata:
+  category: secure_development
+  subcategory: security-principles
 ---
 
 # Secure by Design, by Default, in Deployment (SD3)

@@ -5,8 +5,9 @@ description: >
   quotas, and service types for pods. Use when writing, reviewing, or auditing
   Deployments, ServiceAccounts, Roles, RoleBindings, ResourceQuotas, or
   Services for least-privilege access control.
-category: "secure_development"
-subcategory: "kubernetes"
+metadata:
+  category: secure_development
+  subcategory: kubernetes
 ---
 
 # Pod Access Control

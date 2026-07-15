@@ -4,8 +4,9 @@ description: >
   Harden container images and runtime configuration. Use when building,
   reviewing, or auditing Containerfiles, Dockerfiles, container compose
   files, or Kubernetes pod security settings.
-category: "secure_development"
-subcategory: "kubernetes"
+metadata:
+  category: secure_development
+  subcategory: kubernetes
 ---
 
 # Container Hardening

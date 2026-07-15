@@ -4,7 +4,7 @@ This file is the **module-level** context for assistants consuming this reposito
 
 ## Purpose
 
-This project maintains **138** curated, **tool-agnostic** security skills. Each skill is a directory under `module/skills/<skill-id>/` containing:
+This project maintains **130** curated, **tool-agnostic** security skills. Each skill is a directory under `module/skills/<skill-id>/` containing:
 
 - **`SKILL.md`** — primary guidance (`name`, `description`, `category`, `subcategory` in YAML front matter, then markdown body).
 - **`reference/`** (optional) — supporting procedures and templates loaded on demand.
@@ -55,7 +55,7 @@ Seven historical filename collisions were disambiguated with a `<subcategory>-<n
 | `mcp-client-client-metadata-support` | MCP client OAuth client metadata |
 | `mcp-client-dynamic-client-registration` | MCP client dynamic registration |
 | `mcp-client-protected-resource-metadata` | MCP client protected resource metadata |
-| `model-registry-logging` | Model registry logging (vs external-data-source `logging`) |
+| `model-registry-logging` | Model registry logging (vs the former external-data-source `logging`, since moved to `ge-core/` at the repository root) |
 | `model-registry-model-security-scanning` | Registry scanning (vs inference-engine `model-security-scanning`) |
 | `model-registry-model-signature-verification` | Registry signing (vs inference-engine `model-signature-verification`) |
 | `model-registry-secure-storage` | Registry storage (vs `rag-system` `secure-storage`) |

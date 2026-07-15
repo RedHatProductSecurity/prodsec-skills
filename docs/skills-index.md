@@ -1,12 +1,14 @@
 # Skills Index
 
-138 production-ready skills. All skills are tool-agnostic markdown — they work with Claude Code, Cursor, Copilot, or any assistant that can read files.
+130 production-ready skills. All skills are tool-agnostic markdown — they work with Claude Code, Cursor, Copilot, or any assistant that can read files.
+
+Looking for a starting point? [GE Core](ge-core.md) is a curated set of 12 high-impact skills for developers writing code daily.
 
 ## Categories
 
 | Category | Skills | Purpose |
 |----------|--------|---------|
-| [`secure_development/`](#secure_development) | 113 | Building secure software — AI/agentic infrastructure, cryptography, supply chain, security principles, technology-specific hardening |
+| [`secure_development/`](#secure_development) | 105 | Building secure software — AI/agentic infrastructure, cryptography, supply chain, security principles, technology-specific hardening |
 | [`security_testing/`](#security_testing) | 17 | Finding vulnerabilities — fuzzing and static analysis |
 | [`security_auditing/`](#security_auditing) | 4 | Security review workflows |
 | [`developer_tooling/`](#developer_tooling) | 4 | General-purpose development tooling |
@@ -25,7 +27,7 @@ See [Secure development skills](secure-development-skills.md) for the full index
 | `authorization-server/` | 4 | OAuth 2.1, dynamic client registration, discovery |
 | `crypto/` | 9 | Constant-time analysis, protocol diagramming, zeroization, test vectors, algorithm selection, FIPS compliance, and post-quantum readiness |
 | `eval-sandbox/` | 1 | Output validation in isolated sandboxes |
-| `external-data-source/` | 6 | Auth, authz, encryption, logging, network ACLs, Redis/ElastiCache for external connections |
+| `external-data-source/` | 4 | Authz, encryption, network ACLs, Redis/ElastiCache for external connections |
 | `guardrails/` | 1 | Bidirectional prompt and output filtering |
 | `inference-engine/` | 7 | Isolation, JWT enforcement, model scanning/signing, OIDC, token lifecycle |
 | `large-language-model/` | 3 | File protection, prompt injection mitigation, third-party model security |
@@ -34,14 +36,14 @@ See [Secure development skills](secure-development-skills.md) for the full index
 | `model-registry/` | 5 | Admin security, logging, model scanning/signing, secure storage |
 | `rag-system/` | 1 | Secure storage for RAG/vector/knowledge data |
 | `secure-config/` | 5 | Insecure defaults, API sharp edges, agentic CI/CD action auditing, Apache Camel security, build YAML misconfiguration |
-| `security-principles/` | 5 | Defense in depth, least privilege and mediation, secure by design (SD3), simplicity and isolation, transparency and usability |
+| `security-principles/` | 4 | Defense in depth, least privilege and mediation, simplicity and isolation, transparency and usability |
 | `spiffe-spire/` | 1 | SPIFFE/SPIRE + mTLS for service-to-service auth |
 | `supply-chain/` | 5 | Dependency risk auditing, SBOM/provenance, secure pipelines, software signing |
 | `cloud-infrastructure/` | 2 | AWS security baselines (IAM, VPC, CloudTrail, RDS, KMS), general database security |
-| `kubernetes/` | 13 | Container hardening, health probes, Helm chart security, linux capabilities, network security, observability, operator security, platform integrity, pod access control, SCC security, TLS compliance, workload resilience, cpu performance |
+| `kubernetes/` | 10 | Health probes, Helm chart security, linux capabilities, network security, observability, operator security, platform integrity, TLS compliance, workload resilience, cpu performance |
 | `languages/` | 3 | Go secure coding, compiler hardening (flags, sanitizers), C/C++ memory and string safety |
 | `messaging/` | 2 | Kafka/AMQ Streams (TLS, SASL, ACLs), MQTT (auth, topic ACLs, payload encryption) |
-| `web-security/` | 9 | Web application security, HTTP security headers, React XSS prevention, GraphQL hardening, client-side security, input validation and injection, session management, file uploads, XML and serialization |
+| `web-security/` | 7 | HTTP security headers, React XSS prevention, GraphQL hardening, client-side security, session management, file uploads, XML and serialization |
 
 ---
 

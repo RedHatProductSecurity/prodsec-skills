@@ -1,8 +1,9 @@
 ---
 name: logging
 description: Enforce logging of access to sensitive external data sources in AI systems. Use when designing, building, or reviewing audit and logging capabilities for AI systems accessing external databases or data services.
-category: "secure_development"
-subcategory: "external-data-source"
+metadata:
+  category: secure_development
+  subcategory: external-data-source
 ---
 
 # Logging for External Data Source Access

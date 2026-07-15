@@ -4,8 +4,9 @@ description: >
   Review OpenShift Security Context Constraints for correct privilege levels.
   Use when auditing pod security, reviewing SCC assignments, or configuring
   container runtime permissions on OpenShift clusters.
-category: "secure_development"
-subcategory: "kubernetes"
+metadata:
+  category: secure_development
+  subcategory: kubernetes
 ---
 
 # OpenShift Security Context Constraints (SCC)

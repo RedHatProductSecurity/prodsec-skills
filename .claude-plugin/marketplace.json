@@ -1,7 +1,7 @@
 {
   "name": "prodsec-skills",
   "metadata": {
-    "description": "Red Hat Product Security skills library — 135 security skills for AI coding assistants covering secure development, security testing, security auditing, and developer tooling."
+    "description": "Red Hat Product Security skills library — 130 security skills for AI coding assistants covering secure development, security testing, security auditing, and developer tooling, plus the curated 12-skill GE Core set."
   },
   "owner": {
     "name": "RedHatProductSecurity"
@@ -36,6 +36,12 @@
         "ref": "main"
       },
       "strict": false
+    },
+    {
+      "name": "prodsec-skills-ge-core",
+      "description": "GE Core — 12 curated security skills for developers writing code daily: injection defense, web application security, secrets detection, container hardening, OpenShift/Kubernetes access control, dependency auditing, authentication, secure-by-design, audit logging, and AI security.",
+      "category": "security",
+      "source": "./ge-core"
     }
   ]
 }

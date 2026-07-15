@@ -1,0 +1,37 @@
+{
+  "name": "prodsec-skills-ge-core",
+  "description": "GE Core — 12 curated security skills for developers writing code daily: injection defense, web application security, secrets detection, container hardening, OpenShift/Kubernetes access control, dependency auditing, authentication, secure-by-design, audit logging, and AI security.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Red Hat Product Security"
+  },
+  "homepage": "https://github.com/RedHatProductSecurity/prodsec-skills",
+  "repository": "https://github.com/RedHatProductSecurity/prodsec-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "security",
+    "secure-development",
+    "injection",
+    "secrets-detection",
+    "container-hardening",
+    "kubernetes",
+    "openshift",
+    "supply-chain",
+    "web-security",
+    "ai-security"
+  ],
+  "skills": [
+    "./ai-code-review",
+    "./ai-systems-security",
+    "./authentication",
+    "./container-hardening",
+    "./dependency-vulnerability-audit",
+    "./input-validation-injection",
+    "./logging",
+    "./pod-access-control",
+    "./scc-security",
+    "./secrets-detection-patterns",
+    "./secure-by-design",
+    "./web-application-security"
+  ]
+}

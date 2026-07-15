@@ -6,9 +6,10 @@ description: >
   Covers SQL, LDAP, OS command injection, prototype pollution, and
   general validation strategy.
 license: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
-origin: Adapted from CoSAI Project CodeGuard (https://github.com/cosai-oasis/project-codeguard)
-category: "secure_development"
-subcategory: "web-security"
+metadata:
+  origin: "Adapted from CoSAI Project CodeGuard (https://github.com/cosai-oasis/project-codeguard)"
+  category: secure_development
+  subcategory: web-security
 ---
 
 # Input Validation and Injection Defense

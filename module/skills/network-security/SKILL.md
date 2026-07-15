@@ -113,7 +113,7 @@ Containers must also not use ports reserved by partners.
 
 ### No NodePort Services
 
-Services must use `ClusterIP` (default) or `LoadBalancer` — not `NodePort`. See the [pod-access-control](../pod-access-control/SKILL.md) skill for details.
+Services must use `ClusterIP` (default) or `LoadBalancer` — not `NodePort`. See the [pod-access-control](../../../ge-core/pod-access-control/SKILL.md) skill for details.
 
 ## Dual-Stack Services
 

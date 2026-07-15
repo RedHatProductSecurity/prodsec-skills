@@ -41,6 +41,7 @@ Skill body...
 - **Production-ready skills** go in `skills/<category>/<subcategory>/`.
 - **Work-in-progress or unreviewed skills** go in `experimental/`.
 - Skills graduate from `experimental/` to `skills/` after review.
+- **`ge-core/`** is a curated, standalone set of 12 high-impact skills for Global Engineering ([docs/ge-core.md](docs/ge-core.md)). It follows the [agentskills.io](https://agentskills.io/specification) frontmatter layout (`category`/`subcategory` under `metadata:`). Do not add new skills there directly — changes to the GE Core selection go through the maintainers.
 
 ### Index updates
 
