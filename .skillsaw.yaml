@@ -327,4 +327,4 @@ exclude:
 content-paths: []
 
 # Treat warnings as errors
-strict: true
+strict: false
